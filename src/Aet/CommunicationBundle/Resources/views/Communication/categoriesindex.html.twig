@@ -1,0 +1,56 @@
+
+
+{% extends "AetCommunicationBundle::communication.layout.html.twig" %}
+
+
+{% block aet_annuaire_communication_body %}
+
+
+    <div class="communication_category_filter">
+        {# {{ form(form) }} #}
+
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(form) }}
+
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.categories, 'Catégories', {'label_attr': {'class': 'col-xs-2 control-label'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.categories) }}
+
+            <div class="col-xs-5">
+                {# Génération de l'input. #}
+                {{ form_widget(form.categories, {'attr': {'class': 'aet_categories'}}) }}
+            </div>
+        </div>
+
+        <div class="aet_communication_list_filter_submit" style="text-align: center">
+            {# Génération de l'input. #}
+            {{ form_widget(form.Filtrer, {'attr': {'class': 'btn btn-primary'}}) }}
+
+            <br/>
+            <br/>
+        </div>
+
+
+
+
+        {{ form_rest(form) }}
+
+
+        {# Fermeture de la balise <form> du formulaire HTML #}
+        {{ form_end(form) }}
+
+    </div>
+    <div>
+
+        {{ include("AetCommunicationBundle:Communication:communicationlist.html.twig") }}
+
+
+
+    </div>
+
+{% endblock %}

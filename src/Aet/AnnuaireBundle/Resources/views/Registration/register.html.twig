@@ -1,0 +1,212 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "::master.html.twig" %}
+{% block title %}Inscription{% endblock%}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block aet_annuaire_body  %}
+
+
+
+    <header>
+        <h1 class="title2">Inscription AET</h1>
+    </header>
+
+    <div class="well" >
+
+        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal" >
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.firstname, 'Prénom', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.firstname) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.lastname, 'Nom', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.lastname) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.image, 'Photo', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.image) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.image, {'simple_col': 4}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.matricule, 'Matricule', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.matricule) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.matricule, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+             {#   {{ form_label(form.date_naissance, 'Date de Naissance', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {#  {{ form_errors(form.date_naissance) }}
+
+                 <div class="col-xs-5">
+                     {# Génération de l'input. #}
+                {#  {{ form_widget(form.date_naissance, { 'simple_col': 4 })  }}
+             </div>
+         </div>
+         <div class="form-group">#}
+                {# Génération du label. #}
+                {{ form_label(form.ville, 'Ville', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.ville) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.pays, 'Pays', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.pays) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.pays, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.code_postale, 'Code Postal', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.code_postale) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.code_postale, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.telephone, 'Téléphone', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.telephone) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.username, 'Login', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.username) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.email, 'Email', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.email) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_errors(form.plainPassword.first) }}
+                {{ form_label(form.plainPassword.first, 'Mot de passe', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+                <div class="col-xs-5">
+                    {{ form_widget(form.plainPassword.first) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_errors(form.plainPassword.second) }}
+                {{ form_label(form.plainPassword.second,  'Confirmez le Mot de passe', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+                <div class="col-xs-5">
+                    {{ form_widget(form.plainPassword.second) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.promotion, 'Promotion', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.promotion) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.promotion, { 'simple_col': 4 })  }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.activite_principale, 'Activité Principale', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.activite_principale) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.activite_principale, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.whoami, 'Description Personnelle', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.whoami) }}
+
+                <div class="col-xs-5">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.whoami, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+
+
+            <div class="aetregistration_submit"><input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-primary" />  </div>
+            {{ form_rest(form) }}
+        </form>
+
+    </div>
+{% endblock %}
+{% block orange %}
+{% endblock %}

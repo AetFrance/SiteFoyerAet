@@ -1,0 +1,46 @@
+{% extends '::master.html.twig' %}
+{% block title %}Contact{% endblock%}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block aet_annuaire_body %}
+    <header>
+        <h1 class="title2">Contact AET</h1>
+    </header>
+    {% for flashMessage in app.session.flashbag.get('blogger-notice') %}
+        <div class="aet-notice">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    <p align="center">Contactez l'association des AET?</p>
+
+
+    <form action="{{ path('aet_annuaire_contact') }}" method="post" {{ form_enctype(form) }} class="aet">
+        {{ form_errors(form) }}
+        <div>
+            {{ form_label((form.name), 'Nom')}}
+            {{ form_widget(form.name) }}
+            {{ form_errors(form.name) }}
+        </div>
+        <div>
+            {{ form_label((form.email), 'Email')}}
+            {{ form_widget(form.email) }}
+            {{ form_errors(form.email) }}
+        </div>
+        <div>
+            {{ form_label((form.subject), 'Objet')}}
+            {{ form_widget(form.subject) }}
+            {{ form_errors(form.subject) }}
+        </div>
+        <div>
+            {{ form_label((form.body), 'Contenu')}}
+            {{ form_widget(form.body) }}
+            {{ form_errors(form.body) }}
+        </div>
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Envoyer" />
+    </form>
+{% endblock %}

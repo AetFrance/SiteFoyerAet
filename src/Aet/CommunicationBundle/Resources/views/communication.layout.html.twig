@@ -1,0 +1,39 @@
+{% extends "::master.html.twig" %}
+
+
+
+{% block aet_annuaire_body %}
+
+    {#<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" medial="all">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>#}
+
+
+    <link rel="stylesheet" href="{{ asset('bundles/aetcommunication/css/communication.css') }}" type="text/css" media="all" />
+
+    <div class="communication_space_wrapper">
+
+        <div class="communication-space-header">
+            {{ render(controller("AetCommunicationBundle:Communication:communicationSearch")) }}
+
+            <h1 class="title2">Communauté </h1>
+        </div>
+
+        <div class="communication_top_nav">
+            <span class="communication_top_nav_tab">
+            <a href="{{ path('aet_annuaire_communication_index') }}">Toutes les communications</a>
+                </span>
+
+            <span class="communication_top_nav_tab">
+            <a href="{{ path('aet_annuaire_communication_categories_index') }}">Par catégorie</a>
+                </span>
+
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <span class="communication_top_nav_tab"><a href="{{ path('aet_annuaire_communication_add') }}">Ajouter une communication</a></span>
+            {% endif %}
+        </div>
+
+        {% block aet_annuaire_communication_body %}
+        {% endblock %}
+
+    </div>
+{% endblock %}

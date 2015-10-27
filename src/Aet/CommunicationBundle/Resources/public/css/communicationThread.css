@@ -1,0 +1,124 @@
+#fos_comment_thread textarea
+{
+    padding: 0px;
+}
+
+#fos_comment_comment_body
+{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.fos_comment_comment_depth_0,
+.fos_comment_comment_depth_0 .fos_comment_comment_reply
+{
+    margin-bottom: 10px;
+}
+
+.fos_comment_comment_show
+{
+    background-color: #ffffff;
+}
+
+.fos_comment_comment_depth_1,
+.fos_comment_comment_depth_2,
+.fos_comment_comment_depth_3,
+.fos_comment_comment_depth_4,
+.fos_comment_comment_depth_5,
+.fos_comment_comment_depth_6,
+.fos_comment_comment_depth_7,
+.fos_comment_comment_depth_8,
+.fos_comment_comment_depth_9,
+.fos_comment_comment_depth_10,
+.fos_comment_comment_depth_11,
+.fos_comment_comment_depth_12,
+.fos_comment_comment_depth_13
+{
+    /*margin-bottom: 10px;*/
+    padding: 10px;
+    border: 1px #aeaeae dashed;
+}
+
+.fos_comment_comment_depth_1
+{
+    background-color: #FFFFCC;
+}
+
+.fos_comment_comment_depth_2
+{
+    background-color: #CCFF99;
+}
+
+.fos_comment_comment_depth_3
+{
+    background-color: #CCFFFF;
+}
+
+.fos_comment_comment_depth_4
+{
+    background-color: #FFCCFF;
+}
+
+.fos_comment_comment_depth_5
+{
+    background-color: #CCCCFF;
+}
+
+.fos_comment_comment_depth_6
+{
+    background-color: #FFFFCC;
+}
+
+.fos_comment_comment_depth_7
+{
+    background-color: #CCFF99;
+}
+
+.fos_comment_comment_depth_8
+{
+    background-color: #CCFFFF;
+}
+
+.fos_comment_comment_depth_9
+{
+    background-color: #FFCCFF;
+}
+
+.fos_comment_comment_depth_10
+{
+    background-color: #CCCCFF;
+}
+
+.fos_comment_comment_depth_11
+{
+    background-color: #FFFFCC;
+}
+
+.fos_comment_comment_depth_12
+{
+    background-color: #CCFF99;
+}
+
+.fos_comment_comment_depth_13
+{
+    background-color: #CCFFFF;
+}
+
+/*.fos_comment_comment_show fos_comment_comment_depth_1 .fos_comment_comment_metas,
+.fos_comment_comment_show fos_comment_comment_depth_2 .fos_comment_comment_metas,
+.fos_comment_comment_show fos_comment_comment_depth_3 .fos_comment_comment_metas,
+.fos_comment_comment_show fos_comment_comment_depth_4 .fos_comment_comment_metas,*/
+.fos_comment_comment_show .fos_comment_comment_metas
+{
+    margin-bottom: 10px;
+}
+
+/*.fos_comment_comment_show fos_comment_comment_depth_1 .fos_comment_comment_body,
+.fos_comment_comment_show fos_comment_comment_depth_2 .fos_comment_comment_body,
+.fos_comment_comment_show fos_comment_comment_depth_3 .fos_comment_comment_body,
+.fos_comment_comment_show fos_comment_comment_depth_4 .fos_comment_comment_body,*/
+.fos_comment_comment_show .fos_comment_comment_body
+{
+    margin-bottom: 10px;
+}

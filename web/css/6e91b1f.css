@@ -1,0 +1,116 @@
+.communication_action_buttons
+{
+    text-align: right;
+}
+
+.communication_view_user_image
+{
+    float: left;
+
+}
+
+.communication_view_user_image img
+{
+    width: 100px;
+    height: 100px;
+}
+
+.communication_view_user_name,.communication_view_date
+{
+    display:inline;
+}
+
+.communication_comment_section_title
+{
+    border-bottom: 1px solid black;
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+
+#fos_comment_comment_body
+{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.fos_comment_comment_depth_1,
+.fos_comment_comment_depth_2,
+.fos_comment_comment_depth_3,
+.fos_comment_comment_depth_4,
+.fos_comment_comment_depth_5,
+.fos_comment_comment_depth_6,
+.fos_comment_comment_depth_7,
+.fos_comment_comment_depth_8,
+.fos_comment_comment_depth_9
+{
+    margin: 10px;
+    padding: 10px;
+    border: 1px #aeaeae dashed;
+}
+
+.fos_comment_comment_depth_1
+{
+    background-color: #FFFFCC;
+}
+
+.fos_comment_comment_depth_2
+{
+    background-color: #CCFF99;
+}
+
+.fos_comment_comment_depth_3
+{
+    background-color: #FFCCFF;
+}
+
+.fos_comment_comment_depth_4
+{
+    background-color: #FFFFCC;
+}
+
+.fos_comment_comment_depth_5
+{
+    background-color: #CCFF99;
+}
+
+.fos_comment_comment_depth_6
+{
+    background-color: #FFCCFF;
+}
+
+.fos_comment_comment_depth_7
+{
+    background-color: #FFFFCC;
+}
+
+.fos_comment_comment_depth_8
+{
+    background-color: #CCFF99;
+}
+
+.fos_comment_comment_depth_9
+{
+    background-color: #FFCCFF;
+}
+
+/*.fos_comment_comment_show fos_comment_comment_depth_1 .fos_comment_comment_metas,
+.fos_comment_comment_show fos_comment_comment_depth_2 .fos_comment_comment_metas,
+.fos_comment_comment_show fos_comment_comment_depth_3 .fos_comment_comment_metas,
+.fos_comment_comment_show fos_comment_comment_depth_4 .fos_comment_comment_metas,*/
+.fos_comment_comment_show .fos_comment_comment_metas
+{
+    margin-bottom: 10px;
+}
+
+/*.fos_comment_comment_show fos_comment_comment_depth_1 .fos_comment_comment_body,
+.fos_comment_comment_show fos_comment_comment_depth_2 .fos_comment_comment_body,
+.fos_comment_comment_show fos_comment_comment_depth_3 .fos_comment_comment_body,
+.fos_comment_comment_show fos_comment_comment_depth_4 .fos_comment_comment_body,*/
+.fos_comment_comment_show .fos_comment_comment_body
+{
+    margin-bottom: 10px;
+}

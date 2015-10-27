@@ -1,0 +1,50 @@
+aet_annuaire_homepage:
+    path:     /
+    defaults: { _controller: AetAnnuaireBundle:Default:index}
+
+aet_annuaire_page_view:
+    path:     /page/{urlId}
+    defaults: { _controller: AetAnnuaireBundle:Default:PageView, urlId: "accueil"}
+
+aet_annuaire_page_edit:
+    path:     /pageedit/{urlId}
+    defaults: { _controller: AetAnnuaireBundle:Default:PageEdit}
+
+aet_annuaire_aetlist:
+    path:     /aetlist
+    defaults: { _controller: AetAnnuaireBundle:Default:AetList}
+
+aet_annuaire_aetprofile_view:
+    path:     /aetprofileview/{id}
+    defaults: { _controller: AetAnnuaireBundle:Default:ViewAetProfile} #ProfileEdit
+
+aet_annuaire_aetprofile_edit:
+    path:     /aetprofileedit/{id}
+    defaults: { _controller: AetAnnuaireBundle:Default:EditAetProfile} #ProfileEdit
+
+aet_annuaire_Login:
+    path:     /log
+    defaults: { _controller: AetAnnuaireBundle:Default:LoginBis}
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+aet_annuaire_contact:
+    path:     /contact
+    defaults: { _controller: AetAnnuaireBundle:Default:contact}
+    requirements:
+        _method:  GET|POST
+
+aet_annuaire_register:
+    path:     /register
+    defaults: { _controller: AetAnnuaireBundle:Default:register}
+    requirements:
+        _method:  GET|POST
+
+aet_annuaire_search_index_erase_aetusers:
+    path: /search/eraseaetuserindex
+    defaults:  { _controller: AetAnnuaireBundle:Default:eraseAetUserIndex }
+
+aet_annuaire_search_index_aetusers:
+    path: /search/indexaetusers
+    defaults:  { _controller: AetAnnuaireBundle:Default:indexAetUsers }

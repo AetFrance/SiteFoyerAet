@@ -1,0 +1,39 @@
+.user_image{
+    float: left;
+    width: 200px;
+    height: 600px;
+    /*background-color: #aeaeae;*/
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.user_image img{
+    width: 100%;
+    height: auto;
+}
+
+.user_item{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.aet_metadata_block
+{
+    margin-bottom: 10px;
+}
+
+.aet_metadata
+{
+    font-weight: bold;
+}
+
+.aet_data
+{
+    font-weight: lighter;
+}
+
+.aet_profile_edition_below_image_area
+{
+    margin-top: 10px;
+    text-align: center;
+}

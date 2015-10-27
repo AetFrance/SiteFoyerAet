@@ -1,0 +1,29 @@
+
+{% extends "::master.html.twig" %}
+
+{% block aet_annuaire_body %}
+
+    <link rel="stylesheet" href="{{ asset('bundles/aetannuaire/css/aetpage.css') }}" type="text/css" media="all" />
+
+    {% if is_granted('ROLE_ADMIN') %}
+
+        <div class="aet_page_edition_Button">
+            <a href="{{ path('aet_annuaire_page_edit', {'urlId': AetPage.urlId}) }}" class="btn btn-default">
+                <i class="glyphicon glyphicon-edit"></i>
+                Modifier
+            </a>
+        </div>
+
+    {% endif %}
+
+    <!--
+    <header>
+
+        <h1 class="title2">{{ AetPage.title}}</h1>
+    </header>-->
+
+    <div class="aet-Page" >
+        {{ AetPage.content|raw}}
+    </div>
+
+{% endblock %}

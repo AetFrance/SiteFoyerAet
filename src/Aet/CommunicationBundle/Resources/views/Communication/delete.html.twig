@@ -1,0 +1,39 @@
+
+
+{% extends "AetCommunicationBundle::communication.layout.html.twig" %}
+
+
+{% block aet_annuaire_communication_body %}
+
+    <div>
+
+
+            <div class="communication_deletion_message" >
+                Etes-vous sûr de vouloir supprimer la communication "{{ communication.title }}" ?
+
+
+            </div>
+
+        <a href="{{ path('aet_annuaire_communication_view', {'id': communication.id}) }}" class="communication_deletion_return_to_com btn btn-default">
+
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la communication
+
+        </a>
+
+    <div class="communication_deletion_submit" >
+        {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+        <form action="{{ path('aet_annuaire_communication_delete', {'id': communication.id}) }}" method="post">
+
+            {# Ici j'ai écrit le bouton de soumission à la main #}
+            <input type="submit" value="Supprimer" class="btn btn-danger" />
+            {# Ceci va générer le champ CSRF #}
+            {{ form_rest(form) }}
+        </form>
+
+    </div>
+
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+
+
+{% extends "AetCommunicationBundle::communication.layout.html.twig" %}
+
+
+{% block aet_annuaire_communication_body %}
+
+<div>
+
+
+    {% if is_granted('EDIT',communication) or is_granted('ROLE_ADMIN') %}
+
+
+        <div class="communication_action_buttons">
+
+            <a href="{{ path('aet_annuaire_communication_edit', {'id': communication.id}) }}" class="communication_view_button btn btn-default">
+                <i class="glyphicon glyphicon-edit"></i>
+                Modifier
+            </a>
+
+            <a href="{{ path('aet_annuaire_communication_delete', {'id': communication.id}) }}" class="communication_view_button btn btn-danger">
+                <i class="glyphicon glyphicon-trash"></i>
+                Supprimer
+            </a>
+
+        </div>
+
+    {% endif %}
+    <div class="communication_view_user_image">
+        {#{% image '@AetCommunicationBundle/Resources/public/images/defaultAvatar.jpg' %}
+             <img src="{{ asset_url }}" alt="{{ communication.user }}"/>
+         {% endimage %}	#}
+        <img
+                src="{{ asset(communication.image.webPath) }}"
+                alt="{{ communication.image.alt }}"
+                />
+    </div>
+
+    <div class="communication_title">
+        {{ communication.title }}
+    </div>
+    <div class="communication_view_user_name">
+
+    <div class="communication_view_user_name">Par {{ communication.user }}</i></div>
+    <div class="communication_view_date"> | {{ communication.date|date('d/m/Y') }} </div>
+
+    </div>
+
+    <div class="communication_body" >
+    {{ communication.body|raw }}
+
+    </div>
+
+
+    <div class="communication_comment_section_title">
+        Commentaires
+    </div>
+
+    <div class="communication_body">
+        {#
+        {% stylesheets filter='?yui_css' '@FOSCommentBundle/Resources/assets/css/comments.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+        #}
+
+
+        {#<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>#}
+
+        {% stylesheets
+        '@AetCommunicationBundle/Resources/public/css/communicationView.css'
+        '@AetCommunicationBundle/Resources/public/css/communicationThread.css'
+        filter='?yui_css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        {% javascripts filter='?yui_js'
+            '@AetCommunicationBundle/Resources/public/js/jquery-1.11.2.min.js'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': threadId} %}
+
+        {#
+        {% javascripts filter='?yui_js'
+            '@FOSCommentBundle/Resources/assets/js/comments.js'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        #}
+
+
+</div>
+</div>
+
+{% endblock %}

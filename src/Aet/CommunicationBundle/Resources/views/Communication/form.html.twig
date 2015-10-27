@@ -1,0 +1,139 @@
+{# src/OC/PlatformBundle/Resources/views/Advert/form.html.twig #}
+
+
+{# On laisse vide la vue pour l'instant, on la comblera plus tard
+   lorsqu'on saura afficher un formulaire. #}
+<link rel="stylesheet" href="{{ asset('bundles/aetcommunication/css/communicationForm.css') }}" type="text/css" media="all" />
+<div class="well">
+    {# {{ form(form) }} #}
+
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.title, 'Titre de la communication', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.title) }}
+
+        <div class="col-xs-5">
+            {# Génération de l'input. #}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.shortDesc, 'Courte description de la communication', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.shortDesc) }}
+
+        <div class="col-xs-5">
+            {# Génération de l'input. #}
+            {{ form_widget(form.shortDesc, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.image, 'Image de la communication', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.image) }}
+
+        <div class="col-xs-5 communication_form_image_wrapper">
+
+            {% if communicationEditMode == true %}
+                <div class="communication_edit_form_image_wrapper">
+                    <div class="communication_view_user_image">
+                        {#{% image '@AetCommunicationBundle/Resources/public/images/defaultAvatar.jpg' %}
+                             <img src="{{ asset_url }}" alt="{{ communication.user }}"/>
+                         {% endimage %}	#}
+                        <img
+                                src="{{ asset(communication.image.webPath) }}"
+                                alt="{{ communication.image.alt }}"
+                                />
+
+                    </div>
+                    <div class="communication_view_user_image_edit_message aet_form_field_description">Image actuelle de la communication</div>
+                </div>
+            {% endif %}
+
+            {# Génération de l'input. #}
+            {{ form_widget(form.image.file, {'simple_col': 8}) }}
+            <span class="aet_form_field_description">Télécharger une image pour la communication</span>
+
+            {% if communicationEditMode == "True" %}
+                {{ form_widget(form.image.resetImage, {'attr': {'class': 'aet_reset_image_box'}}) }}
+                <span class="aet_form_field_description">Supprimer l'image de la communication</span>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.body, 'Contenu de la communication', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.body) }}
+
+        <div class="col-xs-8 communication-body-edit">
+            {# Génération de l'input. #}
+            {{ form_widget(form.body, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.categories, 'Catégories de la communication', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.categories) }}
+
+        <div class="col-xs-4">
+            {# Génération de l'input. #}
+            {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    {#<div class="col-xs-4"> #}
+    <div class="aet_communication_submit" >
+    {# Génération de l'input. #}
+        {{ form_widget(form.Enregistrer, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+
+
+
+
+
+    {# Idem pour le champ 'category'. #}
+    {#<div class="form-group">
+        {{ form_label(form.categories, "Categories de la communication", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_errors(form.categories) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>#}
+
+    {# Génération automatique des champs pas encore écrits.
+     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     et tous les champs cachés (type « hidden »). #}
+    {{ form_rest(form) }}
+
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+
+    {#<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+	<script type="text/javascript">
+	tinymce.init({
+		selector: "textarea"
+	 });
+	</script> #}
+</div>

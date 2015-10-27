@@ -1,0 +1,34 @@
+
+
+{% extends "AetCommunicationBundle::communication.layout.html.twig" %}
+
+
+{% block aet_annuaire_communication_body %}
+
+<div>
+
+    {{ include("AetCommunicationBundle:Communication:communicationlist.html.twig") }}
+
+
+
+
+    {# {% if not advert.categories.empty %}
+    <p>
+        Cette annonce est parue dans les catégories suivantes :
+        {% for category in advert.categories %}
+            {{ category.name }}{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+{% endif %}
+
+<div class="well">
+    {% if advert.image is not null %}
+        <div class="well">
+            <img src="{{ advert.image.url }}" alt="{{ advert.image.alt }}">
+        </div>
+
+    {% endif %} #}
+
+</div>
+
+{% endblock %}

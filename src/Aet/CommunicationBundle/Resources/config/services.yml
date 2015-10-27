@@ -1,0 +1,25 @@
+#<service id="aet.communication.comment.acl.comment.roles" class="Aet\CommunicationBundle\Acl\RoleCommentAcl" public="false">
+#    <argument type="service" id="security.context" />
+#    <argument>IS_AUTHENTICATED_REMEMBERED</argument> <!-- Create role -->
+#    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument> <!-- View role -->
+#    <argument>ROLE_ADMIN</argument> <!-- Edit role -->
+#    <argument>ROLE_ADMIN</argument> <!-- Delete role -->
+#    <argument>%fos_comment.model.comment.class%</argument>
+#</service>
+
+services:
+    aet.communication.comment.acl.comment.roles:
+        class: Aet\CommunicationBundle\Acl\RoleCommentAcl
+        arguments: [@security.context, IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_ANONYMOUSLY, ROLE_ADMIN, ROLE_ADMIN, %fos_comment.model.comment.class%]
+
+#    aet_communication.example:
+#        class: Aet\CommunicationBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+#  <service id="application.sonata.comment.acl.comment.roles" class="Application\Sonata\CommentBundle\Acl\RoleCommentAcl" public="false">
+#      <argument type="service" id="security.context" />
+#      <argument>IS_AUTHENTICATED_FULLY</argument> <!-- Create role -->
+#      <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument> <!-- View role -->
+#      <argument>ROLE_ADMIN</argument> <!-- Edit role -->
+#      <argument>ROLE_ADMIN</argument> <!-- Delete role -->
+#      <argument>%fos_comment.model.comment.class%</argument>
+#  </service>

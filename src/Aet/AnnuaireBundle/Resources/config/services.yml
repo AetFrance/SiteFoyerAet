@@ -1,0 +1,25 @@
+
+parameters:
+    fos_collection_parameters:
+        fos_user.resetting.email.template: FOSUserBundle:Resetting:email.txt.twig
+        fos_user.registration.confirmation.template: AetAnnuaireBundle:Registration:email.html.twig
+        from_email:
+            confirmation: %fos_user.registration.confirmation.from_email%
+            resetting: %fos_user.resetting.email.from_email%
+services:
+#    aet_annuaire.example:
+#        class: Aet\AnnuaireBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+  aet_user.registration.form.type:
+        class: Aet\AnnuaireBundle\Form\Type\RegistrationType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: registration }
+
+  aet_user.twig.aet_user_extension:
+        class: Aet\AnnuaireBundle\Twig\CountryExtension
+        tags:
+            - { name: twig.extension }
+  aet_user_mail:
+        class: Aet\AnnuaireBundle\Mailer\Mailer
+        arguments: [@mailer, @router, @templating, {from_email: {confirmation: %fos_user.registration.confirmation.from_email%, resetting: %fos_user.resetting.email.from_email%}, resetting.template: %fos_user.resetting.email.template%, confirmation.template: %fos_user.registration.confirmation.template% }]

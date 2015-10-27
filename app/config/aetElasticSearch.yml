@@ -1,0 +1,110 @@
+fos_elastica:
+    #serializer: ~
+        #callback_class: FOS\ElasticaBundle\Serializer\Callback
+        #serializer: serializer
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        aetwebsite:
+            client: default
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            custom_analyzer:
+                                type: custom
+                                tokenizer: nGram
+                                filter: [stopwords, asciifolding ,lowercase, snowball, elision, worddelimiter]
+                            custom_search_analyzer:
+                                type: custom
+                                tokenizer: standard
+                                filter: [stopwords, asciifolding ,lowercase, snowball, elision, worddelimiter]
+                        tokenizer:
+                            nGram:
+                                type: nGram
+                                min_gram: 2
+                                max_gram: 20
+                        filter:
+                            snowball:
+                                type: snowball
+                                language: French
+                            elision:
+                                type: elision
+                                articles: [l, m, t, qu, n, s, j, d]
+                            stopwords:
+                                type: stop
+                                stopwords: [_french_]
+                                ignore_case: true
+                            worddelimiter :
+                                type: word_delimiter
+            types:
+                aetusers:
+                    mappings:
+                        firstname:
+                            #boost: 6
+                            type: string
+                            index_analyzer: custom_analyzer
+                            search_analyzer: custom_search_analyzer
+                        lastname:
+                            type: string
+                            #analyzer: custom_analyzer
+                            index_analyzer: custom_analyzer
+                            search_analyzer: custom_search_analyzer
+                        pays:
+                            type: string
+                            index_analyzer: custom_analyzer
+                            search_analyzer: custom_search_analyzer
+                        ville:
+                            type: string
+                            index_analyzer: custom_analyzer
+                            search_analyzer: custom_search_analyzer
+                        codePostale:
+                            type: string
+                            index_analyzer: custom_analyzer
+                            search_analyzer: custom_search_analyzer
+                        activitePrincipale:
+                            type: string
+                            index_analyzer: custom_analyzer
+                            search_analyzer: custom_search_analyzer
+                        promotion:
+                            type: date
+                    #serializer:
+                        #groups: [elastica, Default]
+                    persistence:
+                        # the driver can be orm, mongodb or propel
+                        # listener and finder are not supported by
+                        # propel and should be removed
+                        driver: orm
+                        model: Aet\AnnuaireBundle\Entity\User
+                        provider: ~
+                        listener: ~
+                            #immediate: ~
+                        finder: ~
+                        repository: Aet\AnnuaireBundle\Entity\SearchRepository\UserRepository
+                aetcommunications:
+                    mappings:
+                        title:
+                            #boost: 6
+                            type: string
+                            index_analyzer: custom_analyzer
+                            search_analyzer: custom_search_analyzer
+                        shortDesc:
+                            type: string
+                            #analyzer: custom_analyzer
+                            index_analyzer: custom_analyzer
+                            search_analyzer: custom_search_analyzer
+                        body:
+                            type: string
+                            index_analyzer: custom_analyzer
+                            search_analyzer: custom_search_analyzer
+                    persistence:
+                        # the driver can be orm, mongodb or propel
+                        # listener and finder are not supported by
+                        # propel and should be removed
+                        driver: orm
+                        model: Aet\CommunicationBundle\Entity\Communication
+                        provider: ~
+                        listener: ~
+                            #immediate: ~
+                        finder: ~
+                        repository: Aet\CommunicationBundle\Entity\SearchRepository\CommunicationSearchRepository

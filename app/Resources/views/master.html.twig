@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
+    <title>AET PMS</title>
+
+    {% block stylesheets %}
+        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" medial="all">
+        <link rel="stylesheet" href="{{ asset('bundles/aetannuaire/css/default.css') }}" type="text/css" media="all" />
+        <link rel="icon" type="image/ico" href="{{ asset('bundles/aetannuaire/images/favicon.ico') }}">
+    {% endblock %}
+    {% block javascripts %}
+    {% endblock %}
+
+
+</head>
+<body>
+<div id="page">
+    <div id="sidebar">
+        <div id="logo">
+            <h1><a href="#"></a></h1>
+        </div>
+        <!-- end header -->
+        <div id="menu">
+            <ul>
+				<li class="first"><a href="{{ path('aet_annuaire_homepage') }}">Accueil</a></li>
+                <li class="first"><a href="{{ path('aet_annuaire_page_view', {'urlId': 'presentation'}) }}">Pr&eacute;sentation</a></li>
+                <li><a href="{{ path('aet_annuaire_page_view', {'urlId': 'motpresident'}) }}">Le Mot du Pr&eacute;sident</a></li>
+                
+				<li><a href="{{ path('aet_annuaire_page_view', {'urlId': 'historiquepms'}) }}">Le Prytan&eacute;e Militaire de Saint-Louis</a></li>
+				<li><a href="{{ path('aet_annuaire_page_view', {'urlId': 'missions'}) }}">Nos missions</a></li>
+				<li><a href="{{ path('aet_annuaire_page_view', {'urlId': 'cotisations'}) }}">Pourquoi cotiser ?</a></li>
+				<li><a href="{{ path('aet_annuaire_page_view', {'urlId': 'magazine'}) }}">Magazine</a></li>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <li><a href="{{ path('aet_annuaire_aetlist') }}">Annuaire</a></li>
+                {% endif %}
+                <li><a href="{{ path('aet_annuaire_communication_index') }}">Communauté</a></li>
+				<li><a href="{{ path('aet_annuaire_page_view', {'urlId': 'gouvernance'}) }}">Gouvernance</a></li>
+				<li><a href="{{ path('aet_annuaire_page_view', {'urlId': 'statuts'}) }}">Statuts</a></li>
+                <li><a href="{{ path('aet_annuaire_contact') }}">Contact</a></li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('aet_annuaire_search_index_aetusers') }}">Indexer les utilisateurs</a></li>
+                    <li><a href="{{ path('aet_annuaire_search_index_erase_aetusers') }}">Vider l'index des utilisateurs</a></li>
+                    <li><a href="{{ path('aet_annuaire_communication_search_index_aetcommunications') }}">Indexer les communications</a></li>
+                    <li><a href="{{ path('aet_annuaire_communication_search_index_erase_aetcommunications') }}">Vider l'index des communications</a></li>
+                {% endif %}
+
+
+            </ul>
+        </div>
+        <!-- end menu -->
+        <div id="login">
+            {% block login %}
+                <h2 class="title1">Connexion AET</h2>
+                {# si authentifier on affiche le lien de déco...#}
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': (app.user.firstname|capitalize) ~ " " ~ (app.user.lastname|upper) }, 'FOSUserBundle') }}
+                    </br>
+                    <a href="{{ path('aet_annuaire_aetprofile_edit', {'id': app.user.id}) }}">
+                        Editer mon profil
+                    </a>
+                    |
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                    {# si sinon on affiche le résultat de "LoginBisAction" #}
+                {% else %}
+                    {{ render(controller('AetAnnuaireBundle:Default:LoginBis')) }}
+
+                    <h3 class="title1"> <p><a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié?</a></h3><br />
+                    <h2><a href="{{ path('aet_annuaire_register') }}">Inscription</a></h2>
+                {% endif %}
+            {% endblock %}
+        </div>
+        {% for type, messages in app.session.flashBag.all %}
+            {% for message in messages %}
+                <div class="{{ type }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+    </div>
+    <!-- end sidebar -->
+    <div id="content">
+        <div><img src="{{ asset('bundles/aetannuaire/images/photo_couverture.jpg') }}" alt="" width="740" height="220" /></div>
+        <div id="content_wrapper">
+        {% block aet_annuaire_body %}
+        {% endblock %}
+        </div>
+        {% block orange %}
+        <!--
+        <div class="boxed orange">
+            <div class="col-one">
+                <h2 class="title3">Lorem Ipsum Dolorem</h2>
+                <ul>
+                    <li><a href="#">Semper vestibulum</a></li>
+                    <li><a href="#">Vestibulum luctus</a></li>
+                    <li><a href="#">Integer rutrum</a></li>
+                    <li><a href="#">Etiam malesuada</a></li>
+                    <li><a href="#">Elementum facilisis</a></li>
+                    <li><a href="#">Ut tincidunt</a></li>
+                    <li><a href="#">Odio sagittis</a></li>
+                </ul>
+            </div>
+            <div class="col-two">
+                <h2 class="title3">Lorem Ipsum Dolorem</h2>
+                <ul>
+                    <li><a href="#">Semper vestibulum</a></li>
+                    <li><a href="#">Vestibulum luctus</a></li>
+                    <li><a href="#">Integer rutrum</a></li>
+                    <li><a href="#">Etiam malesuada</a></li>
+                    <li><a href="#">Elementum facilisis</a></li>
+                    <li><a href="#">Ut tincidunt</a></li>
+                    <li><a href="#">Odio sagittis</a></li>
+                </ul>
+            </div>
+
+            <div style="clear: both;">&nbsp;</div>
+
+        </div>
+        -->
+        {% endblock %}
+    </div>
+    <!-- end content -->
+    <div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+<div id="footer">
+    <p id="legal">Tous droits r&eacute;serv&eacute;s&copy; Annuaire des Anciens Enfants de troupe PMS. Fait par <a href="{{ path('aet_annuaire_homepage') }}">FoyerAetPMS</a>.</p>
+    <p id="links"><a href="#">Mentions L&eacute;gales</a> | <a href="#">Conditions d&#39;utilisations </a></p>
+</div>
+</body>
+</html>

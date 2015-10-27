@@ -1,0 +1,337 @@
+
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #E5E5E5;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 13px;
+	color: #666666;
+}
+
+blockquote {
+	font-style: italic;
+}
+
+a {
+	color: #135293;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.title1 {
+	margin: 0;
+	padding: 10px 0;
+	background: url(../images/img07.gif) repeat-x left bottom;
+	font-weight: normal;
+	font-size: 129%;
+	color: #FFFFFF;
+}
+
+.title2 {
+	margin: 0;
+	padding: 10px 0;
+	background: url(../images/img09.gif) repeat-x left bottom;
+	font-size: 227%;
+	font-weight: normal;
+	color: #135293;
+}
+
+.title3 {
+	margin: 0;
+	padding: 10px 0;
+	background: url(../images/img11.gif) repeat-x left bottom;
+	font-size: 129%;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+.boxed {
+	padding: 5px 30px 20px 30px;
+}
+
+.boxed p, .boxed ul, .boxed ol {
+	line-height: 180%;
+}
+
+.orange {
+	margin: 20px 30px;
+	background: #FF9523 url(../images/img10.gif) repeat-x;
+	color: #FFFFFF;
+}
+
+.orange a {
+	color: #FFFFFF;
+}
+
+.col-one {
+	float: left;
+	width: 300px;
+}
+
+.col-two {
+	float: right;
+	width: 300px;
+}
+
+/* Page */
+
+#page {
+	width: 980px;
+	margin: 0 auto;
+	background: #FFFFFF url(../images/img01.gif) repeat-y;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: left;
+	width: 240px;
+}
+
+/* Logo */
+
+#logo {
+	height: 220px;
+	background: #FFFFFF url(../images/logo_aet2.jpg) no-repeat center center;
+}
+
+#logo h1, #logo h2 {
+	margin: 0;
+	text-align: center;
+	font-weight: normal;
+	font-style: italic;
+	color: #9C9C9C;
+}
+
+#logo h1 {
+	padding: 100px 0 0 0;
+	background: url(../images/img+.jpg) no-repeat center center;
+	font-size: 36px;
+}
+
+#logo h2 {
+	font-size: 14px;
+}
+
+#logo a {
+	color: #9C9C9C;
+	text-decoration: none;
+}
+
+/* Menu */
+
+#menu {
+	padding: 20px;
+	background: #85C329 url(../images/img04.gif) repeat-x;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu li {
+	padding: 10px 0;
+	background: url(../images/img05.gif) repeat-x;
+}
+
+#menu li.first {
+	background: none;
+}
+
+#menu a {
+	text-decoration: none;
+	font-size: 129%;
+	color: #FFFFFF;
+}
+
+#menu a:hover {
+	text-decoration: underline;
+}
+
+/* Login */
+
+#login {
+	padding: 20px;
+	background: url(../images/img05.gif) repeat-x;
+
+}
+
+#login form {
+	margin: 0;
+	padding: 20px 0 0 0;
+}
+
+#login fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+#login label {
+	color: #FFFFFF;
+}
+
+#inputtext1, #inputtext2 {
+	width: 194px;
+	margin-bottom: .5em;
+	font: bold 100% Georgia, "Times New Roman", Times, serif;
+	color: #666666;
+}
+
+#inputsubmit1 {
+	margin-bottom: .5em;
+	font: bold 100% Georgia, "Times New Roman", Times, serif;
+	color: #666666;
+}
+
+#login a {
+	color: #FFFFFF;
+}
+
+/* Content */
+
+#content {
+	float: right;
+	width: 740px;
+
+}
+
+#content_wrapper
+{
+	padding-left:10px;
+	padding-right:10px;
+}
+
+/* Footer */
+
+#footer {
+    align-content: center;
+	width: 980px;
+	height: 120px;
+	margin: 0 auto;
+	background: url(../images/img12.gif) repeat-x;
+}
+
+#footer p {
+    align-content: center;
+	margin: 0;
+	font-size: 85%;
+}
+
+#links {
+	float: left;
+	width: 220px;
+	height: 45px;
+	padding: 35px 0 0 20px;
+	background: url(../images/img13.gif) repeat-x;
+}
+
+#links a {
+	color: #FFFFFF;
+}
+
+#legal {
+	float: right;
+	width: 720px;
+	height: 45px;
+	padding: 35px 0 0 20px;
+}
+
+*, *::before, *::after
+{
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.aet-notice { text-align: center; padding: 10px; background: #DFF2BF; border: 1px solid; color: #4F8A10; margin-bottom: 10px; }
+form.aet { font-size: 16px; }
+form.aet div { clear: left; margin-bottom: 10px; }
+form.aet label { float: left; margin-right: 10px; text-align: right; width: 100px; font-weight: bold; vertical-align: top; padding-top: 10px; }
+form.aet input[type="text"],
+form.aet input[type="email"]
+{ width: 500px; line-height: 26px; font-size: 20px; min-height: 26px; }
+form.aet textarea { width: 500px; height: 150px; line-height: 26px; font-size: 20px; }
+form.aet input[type="submit"] { margin-left: 110px; width: 508px; line-height: 26px; font-size: 20px; min-height: 26px; }
+form.aet ul li { color: #ff0000; margin-bottom: 5px; }
+.aetregistration_submit{ padding-left: 64%}
+
+input.form-control
+{
+	height: 15px;
+}
+
+
+#fos_user_registration_form_image_file
+{
+	margin-left:15px;
+	position:relative;
+	top:6px;
+}
+#fos_user_registration_form_pays {
+	/*width: 324px;*/
+}
+#fos_user_registration_form_promotion_year
+{
+	/*width: 324px;*/
+}
+#fos_user_registration_form_promotion_month
+{
+    display: none;
+}
+#fos_user_registration_form_promotion_day
+{
+    display: none;
+}
+#fos_user_registration_form_activite_principale {
+	/*width: 324px;*/
+}
+
+.form-control
+{
+	height:auto;
+}
+
+.aet-annuaire-search-box{
+     float: right;
+     position:relative;
+     top:12px;
+ }
+
+.aet-annuaire-search-submit
+{
+    position: relative;
+    left:20px;
+}
+
+/*.aet-annuaire-search-submit button
+{
+	height:30px;
+}*/
+
+input.aet-annuaire-search-textbox
+{
+    height: 20px;
+}
+
+.fos_user_resetting_request
+{
+	position:relative;
+	top:20px;
+}
+
+.fos_user_resetting_request > div
+{
+	float:left;
+	top:20px;
+	margin-right:10px;
+}

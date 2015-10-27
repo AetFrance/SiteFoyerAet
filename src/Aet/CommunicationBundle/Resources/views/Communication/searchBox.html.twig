@@ -1,0 +1,38 @@
+    {% form_theme searchForm _self %}
+
+<div style="display: none">
+    {% block button_widget %}
+        {% spaceless %}
+            {#% if label is empty %}
+                {% set label = name|humanize %}
+            {% endif %#}
+            <button type="{{ type|default('button') }}" {{ block('button_attributes') }}><span class="btn-label"><i class="glyphicon glyphicon-search"></i></span></button>
+        {% endspaceless %}
+    {% endblock button_widget %}
+
+</div>
+
+<div class="aet-communication-search-box" > {#{ form(searchForm) }#}
+
+
+
+
+
+    {{ form_start(searchForm, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(searchForm) }}
+    <div class="col-xs-6" >
+        {# Génération de l'input. #}
+        {{ form_widget(searchForm.searchText, {'attr': {'class': 'aet-communication-search-textbox'}}) }}
+    </div>
+        <span class="aet-communication-search-submit" >
+            {# Génération de l'input. #}
+            {{ form_widget(searchForm.search, {'attr': {'class': 'btn btn-primary'}}) }}
+        </span>
+    {{ form_rest(searchForm) }}
+
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(searchForm) }}
+</div>

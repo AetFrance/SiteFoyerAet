@@ -1,0 +1,38 @@
+.user_image
+{
+    width: 150px;
+    height: 150px;
+    background-color: #aeaeae;
+    margin-bottom: 10px;
+    float: left;
+    margin-right: 10px;
+}
+
+.user_image img
+{
+    width: 100%;
+    height: auto;
+}
+#aet_annuairebundle_user_edit_pays
+{
+    /*width: 324px ;*/
+}
+#aet_annuairebundle_user_edit_promotion_month
+{
+display: none;
+}
+#aet_annuairebundle_user_edit_promotion_year
+{
+    /*width: 324px;*/
+}
+#aet_annuairebundle_user_edit_promotion_day
+{
+    display: none;
+}
+
+.user_image_wrapper .col-lg-8
+{
+    float:none;
+    padding-left: 0px;
+}
+

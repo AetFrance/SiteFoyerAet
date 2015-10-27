@@ -1,0 +1,46 @@
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }
+
+aet_annuaire_communication_index:
+    path:     /
+    defaults: { _controller: AetCommunicationBundle:Communication:index}
+
+aet_annuaire_communication_add:
+    path:     /add
+    defaults: { _controller: AetCommunicationBundle:Communication:add}
+
+aet_annuaire_communication_categories_index:
+    path:     /categories/{categories}
+    defaults: { _controller: AetCommunicationBundle:Communication:categoriesIndex, categories: "none"}
+
+aet_annuaire_communication_search:
+    path:     /search
+    defaults: { _controller: AetCommunicationBundle:Communication:communicationSearch}
+
+aet_annuaire_communication_search_index_erase_aetcommunications:
+    path: /search/eraseaetuserindex
+    defaults:  { _controller: AetCommunicationBundle:Communication:eraseAetCommunicationIndex }
+
+aet_annuaire_communication_search_index_aetcommunications:
+    path: /search/indexaetusers
+    defaults:  { _controller: AetCommunicationBundle:Communication:indexAetCommunications }
+
+aet_annuaire_communication_view:
+    path:     /{id}
+    defaults: { _controller: AetCommunicationBundle:Communication:view}
+
+aet_annuaire_communication_edit:
+    path:     /edit/{id}
+    defaults: { _controller: AetCommunicationBundle:Communication:edit}
+
+aet_annuaire_communication_delete:
+    path:     /delete/{id}
+    defaults: { _controller: AetCommunicationBundle:Communication:delete}
+
+
+
+
+

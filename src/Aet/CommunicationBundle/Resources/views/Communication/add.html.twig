@@ -1,0 +1,23 @@
+{% extends "AetCommunicationBundle::communication.layout.html.twig"  %}
+
+
+{% block aet_annuaire_communication_body %}
+
+    <h2>Créer une communication</h2>
+
+    <link rel="stylesheet" href="{{ asset('bundles/aetcommunication/css/communicationEdit.css') }}" type="text/css" media="all" />
+
+    {{ include("AetCommunicationBundle:Communication:form.html.twig") }}
+
+    <p>
+        Vous êtes en train de créer une communication
+    </p>
+
+    {#  <p>
+         <a href="{{ path('oc_platform_view', {'id': advert.id}) }}" class="btn btn-default">
+             <i class="glyphicon glyphicon-chevron-left"></i>
+             Créer l'annonce
+         </a>
+     </p>#}
+
+{% endblock %}

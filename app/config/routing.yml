@@ -1,0 +1,9 @@
+aet_communication:
+    resource: "@AetCommunicationBundle/Resources/config/routing.yml"
+    prefix:   /communication
+
+aet_annuaire:
+    resource: "@AetAnnuaireBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

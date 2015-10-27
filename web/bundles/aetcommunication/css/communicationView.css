@@ -1,0 +1,40 @@
+.communication_action_buttons
+{
+    text-align: right;
+}
+
+.communication_view_user_image
+{
+    float: left;
+    margin-right:10px;
+    margin-bottom: 5px;
+}
+
+.communication_view_user_image img
+{
+    width: 100px;
+    height: 100px;
+}
+
+.communication_view_user_name,.communication_view_date
+{
+    display:inline;
+}
+
+.communication_comment_section_title
+{
+    border-bottom: 1px solid black;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.communication_view_button
+{
+    text-decoration: none;
+}
+
+
+
+

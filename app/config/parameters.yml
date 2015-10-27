@@ -1,0 +1,14 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: foyeraetffaetpms.mysql.db
+    database_port: 3306
+    database_name: foyeraetffaetpms
+    database_user: foyeraetffaetpms
+    database_password: France2015
+    mailer_transport: gmail
+    mailer_host: smtp.gmail.com
+    mailer_user: foyer.aet.france@gmail.com
+    mailer_password: Prytanee2015
+    locale: fr
+    secret: ThisTokenIsNotSoSecretChangeIt
