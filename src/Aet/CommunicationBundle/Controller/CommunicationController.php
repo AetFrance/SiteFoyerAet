@@ -534,10 +534,15 @@ class CommunicationController extends Controller {
 
     public function luceneSearchAetCommunications($index, $searchKeyWord)
     {
+
+        \ZendSearch\Lucene\Analysis\Analyzer\Analyzer::setDefault(new \ZendSearch\Lucene\Analysis\Analyzer\Common\Text\CaseInsensitive());
+
         $dbIds = Array();
         $searchValue = SearchHelper::utf8_to_ascii( mb_strtolower($searchKeyWord, "UTF-8"));
+
         $em = $this->getDoctrine()->getManager();
 
+        /*
         $term1 = new \ZendSearch\Lucene\Index\Term($searchValue, 'firstname');
         //$subquery1 = new \ZendSearch\Lucene\Search\Query\Term($term1);
 
@@ -559,10 +564,14 @@ class CommunicationController extends Controller {
         $signs = array(null, null, null, null, null);
 
         $termsQuery = new \ZendSearch\Lucene\Search\Query\MultiTerm($terms,$signs);
+        */
 
-        //$boolQuery = new \ZendSearch\Lucene\Search\Query\Boolean($subqueries, $signs);
+        \ZendSearch\Lucene\Search\QueryParser::setDefaultOperator(\ZendSearch\Lucene\Search\QueryParser::B_OR);
 
-        $foundDocuments = $index->find($termsQuery);
+
+        $query = \ZendSearch\Lucene\Search\QueryParser::parse($searchValue,'UTF-8');
+
+        $foundDocuments = $index->find($query);
         //$docNum = count($foundDocuments);
         foreach ($foundDocuments as $foundDoc)
         {
