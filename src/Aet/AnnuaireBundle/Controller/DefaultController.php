@@ -402,10 +402,12 @@ class DefaultController extends Controller
 
     public function luceneSearchAetUsers($index, $searchKeyWord)
     {
-        $dbIds = Array();
+        \ZendSearch\Lucene\Analysis\Analyzer\Analyzer::setDefault(new \ZendSearch\Lucene\Analysis\Analyzer\Common\Text\CaseInsensitive());
+		$dbIds = Array();
         $searchValue = SearchHelper::utf8_to_ascii( mb_strtolower($searchKeyWord, "UTF-8"));
         $em = $this->getDoctrine()->getManager();
 
+		/*
         $term1 = new \ZendSearch\Lucene\Index\Term($searchValue, 'firstname');
         //$subquery1 = new \ZendSearch\Lucene\Search\Query\Term($term1);
 
@@ -443,11 +445,16 @@ class DefaultController extends Controller
         //$subqueries = array($subquery1, $subquery2, $subquery3, $subquery4, $subquery5, $subquery6, $subquery7, $subquery8, $subquery9, $subquery10, $subquery11);
         $terms = array($term1, $term2, $term3, $term4, $term5, $term6, $term7, $term8, $term9, $term10, $term11);
         $signs = array(null, null, null, null, null, null, null, null, null, null, null);
-
-        $termsQuery = new \ZendSearch\Lucene\Search\Query\MultiTerm($terms, $signs);
+		
+		$termsQuery = new \ZendSearch\Lucene\Search\Query\MultiTerm($terms, $signs);
         //$boolQuery = new \ZendSearch\Lucene\Search\Query\Boolean($subqueries, $signs);
+		*/
 
-        $foundDocuments = $index->find($termsQuery);
+		\ZendSearch\Lucene\Search\QueryParser::setDefaultOperator(\ZendSearch\Lucene\Search\QueryParser::B_OR);
+		
+		$query = \ZendSearch\Lucene\Search\QueryParser::parse($searchValue,'UTF-8');
+		
+        $foundDocuments = $index->find($query);
         //$docNum = count($foundDocuments);
         foreach ($foundDocuments as $foundDoc)
         {
