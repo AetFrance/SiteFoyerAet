@@ -14,6 +14,7 @@
     padding:5px;
     background-color: #CC6699;
     margin-right: 5px;
+    margin-bottom: 10px;
 }
 
 .communication_top_nav_tab a:link
@@ -68,6 +69,39 @@
     font-size:24px;
     font-weight: bold;
     margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.communication_body
+{
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+    .communication_title
+    {
+        font-size:24px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        margin-left: 0px;
+        text-align: center;
+    }
+
+    .communication_body
+    {
+        margin-left: 0px;
+        text-align: center;
+    }
+
+    .communication_user_and_date
+    {
+        margin:auto;
+        margin-bottom: 10px;
+    }
+
+
 }
 
 .communication_list_pagination
@@ -79,6 +113,16 @@
 .communication_list_count
 {
     font-weight: bold;
+}
+
+.communication_item
+{
+    margin-bottom:15px;
+}
+
+.communication_item table
+{
+    border:none;
 }
 
 /*Addition of the deletion view styles*/
@@ -99,26 +143,40 @@
 }
 
 .aet-communication-search-box{
-    float: right;
+    /*float: right;
     position:relative;
-    top:12px;
+    top:-7px;
+    width:300px;*/
+    width:350px;
 }
 
-.aet-communication-search-submit
+/*.aet-communication-search-submit
 {
     position: relative;
     left:20px;
 }
 
-/*.aet-annuaire-search-submit button
+.aet-annuaire-search-submit button
 {
 	height:30px;
 }*/
 
 input.aet-communication-search-textbox
 {
-    height: 20px;
+    height: 35px;
+    width: 150px;
 }
 
+/*
+.aet-annuaire-search-box
+{
+    width:350px;
+}
 
+.aet-annuaire-search-box .aet-annuaire-search-textbox
+{
+    width:150px;
+    height:35px;
+}
+*/
 /*End of the deletion view styles*/

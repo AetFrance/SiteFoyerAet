@@ -1,2 +1,270 @@
-{% extends 'AetAnnuaireBundle::layout1.html.twig' %}
+{% extends '::master.html.twig' %}
 
+{% block aet_annuaire_banner_section %}
+    <section id="banner" >
+        <div class="row">
+            <div class="small-12 columns" >
+                <ul data-orbit data-options="timer_speed:8000; navigation_arrows: false;bullets:true;  pause_on_hover: false; resume_on_mouseout: true;">
+                    <li>
+                        <div class="row slider-box">
+                            <div class="slider-details small-12 large-7 columns">
+                                <h2 class="custom-animated fadeInUpBig">Build with foundation 4</h2>
+                                <h4 class="custom-animated fadeInUpBig">Sub heading goes here</h4>
+                                <p class="custom-animated fadeInUpBig">  Porta ac consectetur ac, estibulum at eros. Donec sed odio dui. vestibulum at eros. Donec sed odio dui. Praesent commodo cursus magna. Donec sed odio dui. Praesent commodo cursus magna
+                                    <br /><a href="" class="button small">Read More</a>
+                                </p>
+                            </div>
+                            <div class="slider-image small-12 large-5 columns custom-animated fadeInRightBig">
+                                <img src="{{ asset('images/slider/foundation-4.png') }}" alt="Build with foundation-4" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row slider-box">
+                            <div class="slider-details small-12 large-7 columns">
+                                <h2 class="custom-animated fadeInLeftBig">HTML 5</h2>
+                                <h4 class="custom-animated fadeInLeftBig">Sub heading goes here</h4>
+                                <p class="custom-animated fadeInLeftBig"> Porta ac consectetur estibulum at eros. Donec sed odio dui.estibulum at eros. Donec sed odio dui. ac, vestibulum at eros. Donec sed odio dui. Praesent commodo cursus magna. Donec sed odio dui. Praesent commodo cursus magna
+                                    <br /><a href="" class="button small">Read More</a>
+                                </p>
+                            </div>
+                            <div class="slider-image small-12 large-5 columns custom-animated fadeInRightBig">
+                                <img src="{{ asset('images/slider/html5.png') }}" alt="Build with HTML5" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row slider-box">
+                            <div class="slider-details small-12 large-7 columns custom-animated rotateInDownLeft">
+                                <h2  >Build with CSS3</h2>
+                                <h4  >Sub heading goes here</h4>
+                                <p  > Porta ac consectetur ac, vestibulum at eros. Donec sed odio dui.  Donec sed odio dui Praesent estibulum at eros. Donec sed odio dui. commodo cursus magna. Donec sed odio dui. Praesent commodo cursus magna
+                                    <br /><a href="" class="button small">Read More</a>
+                                </p>
+                            </div>
+                            <div class="slider-image small-12 large-5 columns custom-animated rotateInUpRight">
+                                <img src="{{ asset('images/slider/css3.png') }}" alt="Build with foundation-4" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row slider-box">
+                            <div class="slider-details small-12 large-7 columns">
+                                <h2 class="custom-animated fadeInUpBig">Fully Responsive </h2>
+                                <h4 class="custom-animated fadeInUpBig">Sub heading goes here</h4>
+                                <p class="custom-animated fadeInUpBig"> Porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Praesent commodo  sonec sed odio duicursus magna. Donec sed odio dui. Praesent commodo cursus magna
+                                    <br /><a href="" class="button small">Read More</a>
+                                </p>
+                            </div>
+                            <div class="slider-image small-12 large-5 columns custom-animated fadeInUpBig">
+                                <img src="{{ asset('images/slider/responsive.png') }}" alt="Build with foundation-4" />
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+
+{% block aet_annuaire_homepage_content %}
+
+<!-- Start:  features-box -->
+    <!--
+<div class="row" id="features" >
+    <div class="small-12 large-3 columns aligncenter features-box">
+        <div class="features-img aligncenter">
+            <i class="icon-desktop  icon-circled icon-64"></i>
+        </div>
+        <div class="features-details">
+            <h4>Responsive theme</h4>
+            <p>Lorem ipsum dolor sit has ei ipsum  amet, has ei ipsum scaevola deseruisse am sea facilisis.</p>
+            <a href="#">Read more</a>
+        </div>
+    </div>
+    <div class="small-12 large-3 columns aligncenter features-box">
+        <div class="features-img aligncenter">
+            <i class="icon-mobile-phone  icon-circled icon-64"></i>
+        </div>
+        <div class="features-details">
+            <h4>Mobile Ready</h4>
+            <p>Lorem ipsum dolor sit has ei ipsum  amet, has ei ipsum scaevola deseruisse am sea facilisis.</p>
+            <a href="#">Read more</a>
+        </div>
+    </div>
+    <div class="small-12 large-3 columns aligncenter features-box">
+        <div class="features-img aligncenter">
+            <i class="icon-html5  icon-circled icon-64"></i>
+        </div>
+        <div class="features-details">
+            <h4>HTML5 &amp; CSS 3</h4>
+            <p>Lorem ipsum dolor sit has ei ipsum  amet, has ei ipsum scaevola deseruisse am sea facilisis.</p>
+            <a href="#">Read more</a>
+        </div>
+    </div>
+    <div class="small-12 large-3 columns aligncenter features-box">
+        <div class="features-img aligncenter">
+            <i class="icon-briefcase  icon-circled icon-64"></i>
+        </div>
+        <div class="features-details">
+            <h4>Corporate Business</h4>
+            <p>Lorem ipsum dolor sit has ei ipsum  amet, has ei ipsum scaevola deseruisse am sea facilisis.</p>
+            <a href="#">Read more</a>
+        </div>
+    </div>
+</div>
+    -->
+<!-- End:  features-box -->
+    <!--
+<div  class="sub-headline aligncenter">
+    <div class="row">
+        <div class="small-12">
+            <h3>
+                Lorem ipsum dolor sit has ei ipsum  amet, has ei ipsum scaevola am sea facilisis.
+            </h3>
+            <h5> Has ei ipsum scaevola deseruisse am sea facilisis.</h5>
+            <br />
+            <a href="quote.html" class="button btn-style-4">Request Quote</a>
+        </div>
+    </div>
+</div>
+    -->
+<!-- Start:  Recent Work-->
+
+<section  id="recent-work">
+    <div class="row">
+        <h3 class="small-8 large-10 column">
+            Our Recent Work
+        </h3>
+        <div class="small-4 large-2 column">
+            <a href="#" class="button">Read More</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="recent-box small-12 large-3 column">
+            <a href="{{ asset('images/work/img_1.jpg') }}" data-link="prettyPhoto[pp_gal]" class="thumbnail">
+                <img src="{{ asset('images/work/th_img_1.jpg') }}" alt="Recent Work">
+            </a>
+            <h4>Portfolio Item #1</h4>
+            <p>Etiam porta sem malesuada magna mollis euismod.  </p>
+        </div>
+        <div class="recent-box small-12 large-3 column">
+            <a href="{{ asset('images/work/img_2.jpg') }}" data-link="prettyPhoto[pp_gal]" class="thumbnail">
+                <img src="{{ asset('images/work/th_img_2.jpg') }}" alt="Recent Work">
+            </a>
+            <h4>Portfolio Item #2</h4>
+            <p>Etiam porta sem malesuada magna mollis euismod. </p>
+        </div>
+        <div class="recent-box small-12 large-3 column">
+            <a href="{{ asset('images/work/img_3.jpg') }}" data-link="prettyPhoto[pp_gal]" class="thumbnail">
+                <img src="{{ asset('images/work/th_img_3.jpg') }}" alt="Recent Work">
+
+            </a>
+            <h4>Portfolio Item #3</h4>
+            <p>Etiam porta sem malesuada magna mollis euismod. </p>
+        </div>
+        <div class="recent-box small-12 large-3 column">
+            <a href="{{ asset('images/work/img_4.jpg') }}" data-link="prettyPhoto[pp_gal]" class="thumbnail">
+                <img src="{{ asset('images/work/th_img_4.jpg') }}" alt="Recent Work">
+            </a>
+            <h4>Portfolio Item #4</h4>
+            <p>Etiam porta sem malesuada magna mollis euismod. </p>
+        </div>
+    </div>
+</section>
+
+<!-- End:  Recent Work-->
+
+<!-- Start:  Client List-->
+
+    <!--
+<div class="client-links">
+    <div class="row">
+        <div class="small-12 column">
+            <div class="our-clients">
+                <a href="#"><img src="{{ asset('images/client/client-logo-01.png') }}" alt=""></a>
+                <a href="#"><img src="{{ asset('images/client/client-logo-02.png') }}" alt=""></a>
+                <a href="#"><img src="{{ asset('images/client/client-logo-03.png') }}" alt=""></a>
+                <a href="#"><img src="{{ asset('images/client/client-logo-04.png') }}" alt=""></a>
+                <a href="#"><img src="{{ asset('images/client/client-logo-01.png') }}" alt=""></a>
+                <a href="#"><img src="{{ asset('images/client/client-logo-02.png') }}" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+    -->
+<!-- End:  Client List-->
+
+
+<!-- Start:  Testimonials List-->
+    <!--
+<div class="row">
+    <h3 class="small-12 large-12 column aligncenter">
+        Client's Testimonials
+    </h3>
+
+</div>
+<div class="row" id="testimonials">
+
+    <div class="small-12 large-4 column">
+        <div class="tm-box aligncenter">
+            <div class="tm-thumbnail">
+                <img src="{{ asset('images/team_1.jpg') }}" alt="image1" />
+            </div>
+            <div class="tm-details">
+                <div><strong>Emma Lee </strong>
+                    Project Manager, Company</div>
+                <blockquote>
+                    <i class="icon-quote-left"></i>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra mauris id eros.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <i class="icon-quote-right"></i>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="small-12 large-4 column">
+        <div class="tm-box aligncenter">
+            <div class="tm-thumbnail">
+                <img src="{{ asset('images/team_3.jpg') }}" alt="image1" />
+            </div>
+            <div class="tm-details">
+                <div><strong>Jhon Doe </strong>
+                    Project Manager, Company</div>
+                <blockquote>
+                    <i class="icon-quote-left"></i>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra mauris id eros.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <i class="icon-quote-right"></i>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <div class="small-12 large-4 column">
+        <div class="tm-box aligncenter">
+            <div class="tm-thumbnail">
+                <img src="{{ asset('images/team_4.jpg') }}" alt="image1" />
+            </div>
+            <div class="tm-details">
+                <div><strong>Jhon Doe </strong>
+                    Project Manager, Company</div>
+                <blockquote>
+                    <i class="icon-quote-left"></i>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra mauris id eros.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <i class="icon-quote-right"></i>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!-- End:  Testimonials List-->
+
+
+{% endblock %}

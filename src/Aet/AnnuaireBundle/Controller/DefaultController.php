@@ -2,6 +2,7 @@
 
 namespace Aet\AnnuaireBundle\Controller;
 
+use Aet\AnnuaireBundle\Entity\AetPage;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Aet\AnnuaireBundle\Form\Type\ContactType;
@@ -24,12 +25,18 @@ class DefaultController extends Controller
 
     private $numberOfUsersPerPage = 10;
     private $aetUserSearchIndexName = "aetuserindex";
+    private $aetPageSearchIndexName = "aetpageindex";
 
 
     public function indexAction()
     {
-        return $this->redirect($this->generateUrl('aet_annuaire_page_view'));
-        //return $this->render('AetAnnuaireBundle:Default:index.html.twig');
+        //return $this->redirect($this->generateUrl('aet_annuaire_page_view'));
+        return $this->render('AetAnnuaireBundle:Default:index.html.twig');
+    }
+
+    public function LoginAetAction()
+    {
+        return $this->render('AetAnnuaireBundle:Security:login.html.twig');
     }
 
     public function LoginBisAction()
@@ -45,7 +52,6 @@ class DefaultController extends Controller
 
     public function AetListAction(Request $request)
     {
-
         // On vérifie que l'utilisateur dispose bien du rôle ROLE_AUTEUR
         if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             // Sinon on déclenche une exception « Accès interdit »
@@ -400,14 +406,14 @@ class DefaultController extends Controller
         $index->optimize();
     }
 
+    //aetpageindex
+
     public function luceneSearchAetUsers($index, $searchKeyWord)
     {
-        \ZendSearch\Lucene\Analysis\Analyzer\Analyzer::setDefault(new \ZendSearch\Lucene\Analysis\Analyzer\Common\Text\CaseInsensitive());
-		$dbIds = Array();
+        $dbIds = Array();
         $searchValue = SearchHelper::utf8_to_ascii( mb_strtolower($searchKeyWord, "UTF-8"));
         $em = $this->getDoctrine()->getManager();
 
-		/*
         $term1 = new \ZendSearch\Lucene\Index\Term($searchValue, 'firstname');
         //$subquery1 = new \ZendSearch\Lucene\Search\Query\Term($term1);
 
@@ -445,16 +451,11 @@ class DefaultController extends Controller
         //$subqueries = array($subquery1, $subquery2, $subquery3, $subquery4, $subquery5, $subquery6, $subquery7, $subquery8, $subquery9, $subquery10, $subquery11);
         $terms = array($term1, $term2, $term3, $term4, $term5, $term6, $term7, $term8, $term9, $term10, $term11);
         $signs = array(null, null, null, null, null, null, null, null, null, null, null);
-		
-		$termsQuery = new \ZendSearch\Lucene\Search\Query\MultiTerm($terms, $signs);
-        //$boolQuery = new \ZendSearch\Lucene\Search\Query\Boolean($subqueries, $signs);
-		*/
 
-		\ZendSearch\Lucene\Search\QueryParser::setDefaultOperator(\ZendSearch\Lucene\Search\QueryParser::B_OR);
-		
-		$query = \ZendSearch\Lucene\Search\QueryParser::parse($searchValue,'UTF-8');
-		
-        $foundDocuments = $index->find($query);
+        $termsQuery = new \ZendSearch\Lucene\Search\Query\MultiTerm($terms, $signs);
+        //$boolQuery = new \ZendSearch\Lucene\Search\Query\Boolean($subqueries, $signs);
+
+        $foundDocuments = $index->find($termsQuery);
         //$docNum = count($foundDocuments);
         foreach ($foundDocuments as $foundDoc)
         {
@@ -466,4 +467,98 @@ class DefaultController extends Controller
         return $results;
     }
 
+    public function eraseAetPageIndexAction()
+    {
+        // On vérifie que l'utilisateur dispose bien du rôle ROLE_ADMIN
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux ADMINISTRATEURS.');
+        }
+
+        $luceneSearch = $this->get('ivory_lucene_search');
+        $luceneSearch->eraseIndex($this->aetPageSearchIndexName);
+
+        return $this->redirect($this->generateUrl('aet_annuaire_aetlist'));
+    }
+
+    public function indexAetPagesAction()
+    {
+        // On vérifie que l'utilisateur dispose bien du rôle ROLE_ADMIN
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux ADMINISTRATEURS.');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        // Ici, on récupérera la liste des annonces, puis on la passera au template
+        // Notre liste d'annonce en dur listAdverts
+        $listAetUserss = $em
+            ->getRepository('AetAnnuaireBundle:AetPage')
+            ->findAll()
+        ;
+        $index = $this->get('ivory_lucene_search')->getIndex($this->aetPageSearchIndexName);
+
+        foreach ($listAetUserss as $aetUser)
+        {
+            $this->addAetUserToSearchIndex($index,$aetUser);
+        }
+
+        return $this->redirect($this->generateUrl('aet_annuaire_aetlist'));
+
+    }
+
+    public function addAetPageToSearchIndex($index, AetPage $aetPage)
+    {
+        // Create a new document
+        $document = new Document();
+
+        $document->addField(Field::keyword('dbId', $aetPage->getUrlId(),'utf-8'));
+        $document->addField(Field::unStored('firstname', $aetPage->getTitle(), 'utf-8'));
+        $document->addField(Field::unStored('lastname', $aetPage->getContent(), 'utf-8'));
+
+        // Add your document to the index
+        $index->addDocument($document);
+
+        // Commit your change
+        $index->commit();
+
+        $index->optimize();
+    }
+
+    //aetpageindex
+
+    public function luceneSearchAetPages($index, $searchKeyWord)
+    {
+        $dbIds = Array();
+        $searchValue = SearchHelper::utf8_to_ascii( mb_strtolower($searchKeyWord, "UTF-8"));
+        $em = $this->getDoctrine()->getManager();
+
+        $term1 = new \ZendSearch\Lucene\Index\Term($searchValue, 'urlid');
+        //$subquery1 = new \ZendSearch\Lucene\Search\Query\Term($term1);
+
+        $term2 = new \ZendSearch\Lucene\Index\Term($searchValue, 'title');
+        //$subquery2 = new \ZendSearch\Lucene\Search\Query\Term($term2);
+
+        $term3 = new \ZendSearch\Lucene\Index\Term($searchValue, 'content');
+        //$subquery3 = new \ZendSearch\Lucene\Search\Query\Term($term3);
+
+
+        //$subqueries = array($subquery1, $subquery2, $subquery3, $subquery4, $subquery5, $subquery6, $subquery7, $subquery8, $subquery9, $subquery10, $subquery11);
+        $terms = array($term1, $term2, $term3);
+        $signs = array(null, null, null);
+
+        $termsQuery = new \ZendSearch\Lucene\Search\Query\MultiTerm($terms, $signs);
+        //$boolQuery = new \ZendSearch\Lucene\Search\Query\Boolean($subqueries, $signs);
+
+        $foundDocuments = $index->find($termsQuery);
+        //$docNum = count($foundDocuments);
+        foreach ($foundDocuments as $foundDoc)
+        {
+            $dbIds[] = $foundDoc->dbId;
+        }
+
+        $results = $em->getRepository('AetAnnuaireBundle:AetPage')->findById($dbIds);
+
+        return $results;
+    }
 }

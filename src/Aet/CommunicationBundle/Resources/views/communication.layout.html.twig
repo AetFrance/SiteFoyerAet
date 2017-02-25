@@ -1,8 +1,30 @@
 {% extends "::master.html.twig" %}
 
+{% block aet_annuaire_banner_section %}
 
+    {#% if app.request.get('_route') != 'aet_annuaire_homepage' %#}
+
+    <div class="page-title">
+        <div class="row">
+            <div class="small-12 large-6 column">
+                <h1  class="animated flipInX"><i class="icon-lock"></i> Espace Communication
+                </h1>
+            </div>
+            <div class="small-12 large-6 column">
+                <ul class="breadcrumbs right">
+                    <li><a href="{{ path('aet_annuaire_homepage') }}">Home</a></li>
+                    <li class="current"><a href="#"> {#% block aet_annuaire_banner_title %}
+                            {% endblock %#} {{ block('aet_annuaire_banner_title') }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {#% endif %#}
+
+{% endblock %}
 
 {% block aet_annuaire_body %}
+
 
     {#<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" medial="all">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>#}
@@ -12,10 +34,10 @@
 
     <div class="communication_space_wrapper">
 
+        {#
         <div class="communication-space-header">
             {{ render(controller("AetCommunicationBundle:Communication:communicationSearch")) }}
 
-            <h1 class="title2">Communauté </h1>
         </div>
 
         <div class="communication_top_nav">
@@ -32,8 +54,31 @@
             {% endif %}
         </div>
 
+        #}
+        <div class="row">
+
+            <div class="col-md-10">
+                <div class="communication_top_nav_tab col-md-3">
+                <a href="{{ path('aet_annuaire_communication_index') }}">Toutes les communications</a>
+                    </div>
+
+                <div class="communication_top_nav_tab col-md-3">
+                <a href="{{ path('aet_annuaire_communication_categories_index') }}">Par catégorie</a>
+                    </div>
+
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <div class="communication_top_nav_tab col-md-4"><a href="{{ path('aet_annuaire_communication_add') }}">Ajouter une communication</a></div>
+                {% endif %}
+            </div>
+
+            <div class="col-md-2">
+                {{ render(controller("AetCommunicationBundle:Communication:communicationSearch")) }}
+
+            </div>
+        </div>
         {% block aet_annuaire_communication_body %}
         {% endblock %}
 
     </div>
+
 {% endblock %}

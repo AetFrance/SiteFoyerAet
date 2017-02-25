@@ -1,7 +1,10 @@
+{% extends "AetAnnuaireBundle::layout1.html.twig" %}
+ {% block aet_annuaire_banner_title %}
+     {{ AetPage.title}}
+ {% endblock %}
 
-{% extends "::master.html.twig" %}
+ {% block aet_annuaire_sub_body %}
 
-{% block aet_annuaire_body %}
 
     <link rel="stylesheet" href="{{ asset('bundles/aetannuaire/css/aetpage.css') }}" type="text/css" media="all" />
 

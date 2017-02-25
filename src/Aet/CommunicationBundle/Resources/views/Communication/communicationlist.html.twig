@@ -13,7 +13,7 @@
     {{ knp_pagination_render(pagination) }}
 </div>
 
-{% for communication in pagination %}
+{#% for communication in pagination %}
     <div class="communication_item" >
         <table>
             <tr>
@@ -21,9 +21,7 @@
 
                     <div class="communication_user_and_date" >
                         <div class="communication_user_image" >
-                            {#{% image '@AetCommunicationBundle/Resources/public/images/defaultAvatar.jpg' %}
-                                <img src="{{ asset_url }}" alt="{{ communication.user }}"/>
-                            {% endimage %}#}
+
                             <a href="{{ path('aet_annuaire_communication_view', {'id': communication.id}) }}">
                                 <img
                                   src="{{ asset(communication.image.webPath) }}"
@@ -41,7 +39,6 @@
                         <a href="{{ path('aet_annuaire_communication_view', {'id': communication.id}) }}">{{ communication.title|length > 80 ? (communication.title|slice(0, 80) ~ '...')|raw : (communication.title|raw) }}</a>
                     </div>
                     <div class="communication_body" >
-                        {#{ communication.shortDesc|length > 255 ? (communication.shortDesc|slice(0, 255) ~ '...')|raw  : (communication.shortDesc|raw) }#}
                         {{ communication.shortDesc }}
                     </div>
                 </td>
@@ -49,6 +46,42 @@
 
 
         </table>
+    </div>
+{% endfor %#}
+
+{% for communication in pagination %}
+    <div class="communication_item" >
+
+            <div class="row">
+                <div class="col-md-1">
+
+                    <div class="communication_user_and_date" >
+                        <div class="communication_user_image" >
+
+                            <a href="{{ path('aet_annuaire_communication_view', {'id': communication.id}) }}">
+                                <img
+                                  src="{{ asset(communication.image.webPath) }}"
+                                  alt="{{ communication.image.alt }}"
+                                />
+                            </a>
+                        </div>
+                        <div class="communication_user_name"><i>Par {{ communication.user.firstName | capitalize }} {{ communication.user.lastName | upper }}</i></div>
+                        <div class="communication_date"><i>Le {{ communication.date|date('d/m/Y') }}</i></div>
+                    </div>
+
+                </div>
+                <div class="col-md-9">
+                    <div class="communication_title" >
+                        <a href="{{ path('aet_annuaire_communication_view', {'id': communication.id}) }}">{{ communication.title|length > 80 ? (communication.title|slice(0, 80) ~ '...')|raw : (communication.title|raw) }}</a>
+                    </div>
+                    <div class="communication_body" >
+                        {{ communication.shortDesc }}
+                    </div>
+                </div>
+            </div>
+
+
+
     </div>
 {% endfor %}
 

@@ -1,26 +1,32 @@
-{% extends "::master.html.twig" %}
+{% extends "AetAnnuaireBundle::layout1.html.twig" %}
+ {% block aet_annuaire_banner_title %}
+     &Eacute;dition profil
+ {% endblock %}
+
+
+
 {% block title %}Edition profil{% endblock%}
 
 {% block head %}
     {{ parent() }}
 {% endblock %}
 
-{% block aet_annuaire_body  %}
+{% block aet_annuaire_sub_body  %}
 
 
-
+<!--
 <header>
     <h1 class="title2">Edition profil</h1>
-</header>
+</header>-->
     <link rel="stylesheet" href="{{ asset('bundles/aetannuaire/css/aetprofileedit.css') }}" type="text/css" media="all" />
 
 <div class="well">
-    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal form-stacked'}}) }}
 
     {# Les erreurs générales du formulaire. #}
     {{ form_errors(form) }}
 
-    <div class="form-group">
+    <div class="form-group clearfix">
         {# Génération du label. #}
         {{ form_label(form.firstname, 'Prénom', {'label_attr': {'class': 'col-xs-3 control-label'}}) }}
 

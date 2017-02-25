@@ -22,6 +22,10 @@ aet_annuaire_aetprofile_edit:
     path:     /aetprofileedit/{id}
     defaults: { _controller: AetAnnuaireBundle:Default:EditAetProfile} #ProfileEdit
 
+aet_annuaire_Login_disp:
+    path:     /logdisp
+    defaults: { _controller: AetAnnuaireBundle:Default:LoginAet}
+
 aet_annuaire_Login:
     path:     /log
     defaults: { _controller: AetAnnuaireBundle:Default:LoginBis}

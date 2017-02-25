@@ -1,25 +1,75 @@
+.header-wrapper {
+    float:right;
+    margin-right:65px;
+}
+
+.aet-annuaire-search-box
+{
+    width:350px;
+}
+
+.aet-annuaire-search-box .aet-annuaire-search-textbox
+{
+    width:150px;
+    height:35px;
+}
+
+/*
 .user_image_cell
 {
     width: 107px;
 }
+*/
 .user_image{
-    width: 100px;
+    /*width: 100px;
     height: 100px;
     background-color: #aeaeae;
-    margin-bottom: 5px;
-    margin-right: 7px;
+    max-width: 100px;
+    height: auto;*/
+    position: relative;
+    overflow: hidden;
+
+    /*margin-bottom: 5px;
+    margin-right: 7px;*/
 }
 
 .user_image img{
-    width: 100%;
-    height: auto;
+    /*width: 100%;
+    height: auto;*/
+    display: block;
+    margin: 0 auto;
+    height: 100px;
+    width: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
 }
 
 .user_list_count
 {
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left:215px;
     font-weight: bold;
+}
+
+@media  only screen and (max-width: 768px) {
+    .header-wrapper
+    {
+        float:none;
+    }
+
+    .user_list_count
+    {
+        margin-left:10px!important;
+    }
+}
+
+.annuaire_list_pagination
+{
+    margin-left:10%;
 }
 
 .user_sorting_area
@@ -31,12 +81,55 @@
     font-weight: bold;
 }
 .user_item{
-    margin-bottom: 10px;
+    margin-bottom: 2%!important;
+    padding:1%!important;
+    /*width:670px;*/
+    margin-left:5%!important;
+    margin-right:5%!important;
+    border-radius:25px;
+    border:solid 1px #dddddd;
 }
 
+
+@media only screen and (min-width: 768px) {
+
+    .header-wrapper
+    {
+        float:none;
+
+    }
+    .aet-annuaire-search-box
+    {
+        float:right;
+    }
+
+    .user_list_count, .annuaire_list_pagination
+    {
+        margin-left:150px!important;
+    }
+
+    .user_item {
+        width:690px!important;
+        margin-left:auto!important;
+        margin-right:auto!important;
+        padding:1%!important;
+    }
+
+
+}
+
+.user_item table{
+    margin: auto;
+    border:none;
+}
 .user_miscellaneous_info_cell, .user_miscellaneous_info
 {
-    width:350px;
+    /*width:335px;*/
+}
+
+.user_miscellaneous_info div, .user_other_miscellaneous_info div
+{
+    margin-bottom:7px;
 }
 
 .aet_metadata

@@ -1,14 +1,19 @@
-{% extends '::master.html.twig' %}
+{% extends "AetAnnuaireBundle::layout1.html.twig" %}
+ {% block aet_annuaire_banner_title %}
+     Contact AET
+ {% endblock %}
+
+
 {% block title %}Contact{% endblock%}
 
 {% block head %}
     {{ parent() }}
 {% endblock %}
 
-{% block aet_annuaire_body %}
-    <header>
+{% block aet_annuaire_sub_body %}
+    <!-- <header>
         <h1 class="title2">Contact AET</h1>
-    </header>
+    </header> -->
     {% for flashMessage in app.session.flashbag.get('blogger-notice') %}
         <div class="aet-notice">
             {{ flashMessage }}

@@ -1,18 +1,24 @@
-{% extends "::master.html.twig" %}
+{% extends "AetAnnuaireBundle::layout1.html.twig" %}
+ {% block aet_annuaire_banner_title %}
+     &Eacute;dition page
+ {% endblock %}
+
 
 {% block title %}Edition page{% endblock%}
 
 
-{% block aet_annuaire_body  %}
+{% block aet_annuaire_sub_body  %}
 
 
 
+    <!--
     <header>
         <h1 class="title2">Edition page</h1>
-    </header>
+    </header> -->
     <link rel="stylesheet" href="{{ asset('bundles/aetannuaire/css/aetpage.css') }}" type="text/css" media="all" />
 
     <div class="well">
+
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
         {# Les erreurs générales du formulaire. #}
@@ -44,6 +50,7 @@
                 {{ form_widget(form.urlId, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
+
         <div class="form-group">
             {# Génération du label. #}
             {{ form_label(form.content, 'Page content', {'label_attr': {'class': 'col-xs-2 control-label'}}) }}

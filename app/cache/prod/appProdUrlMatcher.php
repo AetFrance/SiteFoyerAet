@@ -316,6 +316,11 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         }
 
         if (0 === strpos($pathinfo, '/log')) {
+            // aet_annuaire_Login_disp
+            if ($pathinfo === '/logdisp') {
+                return array (  '_controller' => 'Aet\\AnnuaireBundle\\Controller\\DefaultController::LoginAetAction',  '_route' => 'aet_annuaire_Login_disp',);
+            }
+
             // aet_annuaire_Login
             if ($pathinfo === '/log') {
                 return array (  '_controller' => 'Aet\\AnnuaireBundle\\Controller\\DefaultController::LoginBisAction',  '_route' => 'aet_annuaire_Login',);

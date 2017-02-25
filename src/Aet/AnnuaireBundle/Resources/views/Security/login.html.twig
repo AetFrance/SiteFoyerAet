@@ -1,14 +1,22 @@
-{% extends 'AetAnnuaireBundle::layout1.html.twig' %}
+{% extends "AetAnnuaireBundle::layout1.html.twig" %}
+ {% block aet_annuaire_banner_title %}
+     Login
+ {% endblock %}
 
- {% block login %}
-     <h2 class="title1">Connexion AET</h2>
-     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-         {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-         <a href="{{ path('fos_user_security_logout') }}">
-             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-         </a>
-         {# si sinon on affiche le résultat de "LoginBisAction" #}
-     {% else %}
-         {{ render(controller('AetAnnuaireBundle:Default:LoginBis')) }}
-  {% endif %}
-     {% endblock %}
+ {% block aet_annuaire_sub_body %}
+     <section class="row"  id="signup">
+         <div class="small-12 large-4 small-centered large-centered column">
+             <h2 class="aligncenter title">Connexion AET</h2>
+
+             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                 <a href="{{ path('fos_user_security_logout') }}">
+                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                 </a>
+                 {# si sinon on affiche le résultat de "LoginBisAction" #}
+             {% else %}
+                 {{ render(controller('AetAnnuaireBundle:Default:LoginBis')) }}
+             {% endif %}
+         </div>
+     </section>
+{% endblock %}
